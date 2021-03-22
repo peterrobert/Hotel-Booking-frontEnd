@@ -13,8 +13,8 @@ class Hotel extends Component {
     }
 
     render() {
-        const {data, status} = this.props.resturants.hotels.data
-       console.log(data)
+       const {data, status} = this.props.resturants.hotels.data
+       console.log(data, status)
         return (
             <div>
 
