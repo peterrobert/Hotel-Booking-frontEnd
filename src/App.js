@@ -1,10 +1,12 @@
 import './App.css';
 import Welcome from './components/Welcome';
+import Hotel from './containers/Hotel';
 
 function App() {
   return (
     <div className="App">
-      <Welcome />
+      <Hotel />
+      {/* <Welcome /> */}
     </div>
   );
 }

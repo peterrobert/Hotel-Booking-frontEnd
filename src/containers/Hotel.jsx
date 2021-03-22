@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { dataHotel } from '../redux/Actions/hotelAction';
 
 class Hotel extends Component {
     constructor(props) {
@@ -6,7 +8,13 @@ class Hotel extends Component {
 
     }
 
+    componentDidMount() {
+        this.props.fetchRequestHotels()
+    }
+
     render() {
+        const {data, status} = this.props.resturants.hotels.data
+       console.log(data)
         return (
             <div>
 
@@ -15,8 +23,14 @@ class Hotel extends Component {
     }
 }
 
-Hotel.propTypes = {
+const mapStateToProps = state => ({
+    resturants: state
+});
+  
+const mapDispatchToProps = dispatch => ({
 
-};
+    fetchRequestHotels: () => dispatch(dataHotel()),
 
-export default Hotel;
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hotel);
