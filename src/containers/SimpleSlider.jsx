@@ -1,47 +1,42 @@
-import React, { Component } from 'react';
-import Slider from "react-slick";
-
+import React, { Component } from "react";
 
 class SimpleSlider extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
 
-    }
-
-    render() {
-      const settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 1
-          };
-        return (
-            <div>
-                 <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-
+  diplayHotels() {
+    const { data } = this.props;
+    const diplayInfo = data.map((info) => {
+      return (
+        <div className="card mb-3" style="max-width: 540px;" key={info.id}>
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              <img src={`${info.main_image}`} className="card-img" alt={info.name} />
             </div>
-        );
-    }
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{info.name}</h5>
+                <p className="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p className="card-text">
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+    return diplayInfo;
+  }
+
+  render() {
+    return this.diplayHotels();
+  }
 }
 
 export default SimpleSlider;

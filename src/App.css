@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+body{
+  overflow-x: hidden;
+}
+
 .welcome-page {
   background: linear-gradient(0deg, rgb(19 18 18 / 30%), rgb(16 16 16 / 30%)),
   url('https://i.imgur.com/lIzY6Az.jpg');
@@ -110,4 +114,10 @@
   color: #c1b7b7;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
+}
+
+.slider_dipslay{
+  position: relative;
+  top: 50px;
+  width: 100%;
 }

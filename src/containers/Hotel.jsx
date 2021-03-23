@@ -15,7 +15,6 @@ class Hotel extends Component {
 
   render() {
     const { data, status } = this.props.resturants.hotels.data;
-    console.log(data, status);
     return (
       <div className="container-fluid">
         <div className="row">
@@ -27,7 +26,9 @@ class Hotel extends Component {
               <h2>Available Hotels</h2>
               <p>This are the hotels that are available for booking</p>
             </div>
-            {status == "ok"? <SimpleSlider data= {data} />: "No eveluation" }  
+            <div className="slider_dipslay">
+              {status == "ok" ? <SimpleSlider data={data} /> : "No eveluation"}
+            </div>
           </div>
         </div>
       </div>
