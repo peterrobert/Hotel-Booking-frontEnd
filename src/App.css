@@ -1,4 +1,7 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .welcome-page {
   background: linear-gradient(0deg, rgb(19 18 18 / 30%), rgb(16 16 16 / 30%)),
@@ -41,4 +44,70 @@
 
 .welcome-info .fa-home{
   padding-left: 10px;
+}
+
+.nav-bar{
+  height: 100vh;
+  box-shadow: 3px -1px 10px -1px rgba(77,67,67,0.65);
+-webkit-box-shadow: 3px -1px 10px -1px rgba(77,67,67,0.65);
+-moz-box-shadow: 3px -1px 10px -1px rgba(77,67,67,0.65);
+
+}
+
+.logo{
+  position: relative;
+  top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-bar ul{
+  position: relative;
+  top: 15vh;
+}
+
+.nav-bar ul li a{
+  color: #000 !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 20px 15px !important;
+  text-transform: capitalize;
+}
+
+.logIn{
+  position: absolute;
+  bottom: 0px;
+ width: 90%;
+}
+
+.logIn button{
+  margin-left: 3px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: #000 !important;
+  height: 40px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.title{
+  position: relative;
+  top: 50px;
+}
+
+.title h2{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title p{
+  font-weight: 500;
+  color: #c1b7b7;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
 }
