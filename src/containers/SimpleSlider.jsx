@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { withRouter } from "react-router";
 
 class SimpleSlider extends Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(id) {
+    const { history } = this.props;
+    history.push(`/hotels/${id}`);
   }
 
   diplayHotels() {
@@ -16,10 +24,14 @@ class SimpleSlider extends Component {
           <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
           <span>Location: {info.location}</span>
           <br />
-          <i class="fa fa-usd" aria-hidden="true"></i>{" "}
+          <i className="fa fa-usd" aria-hidden="true"></i>{" "}
           <span>price per night: {info.price} $$</span>
           <br />
-          <button type="button" className="btn btn-light">
+          <button
+            type="button"
+            onClick={() => this.handleClick(info.id)}
+            className="btn btn-light"
+          >
             view hotel
           </button>
         </div>
@@ -45,4 +57,4 @@ class SimpleSlider extends Component {
   }
 }
 
-export default SimpleSlider;
+export default withRouter(SimpleSlider);
