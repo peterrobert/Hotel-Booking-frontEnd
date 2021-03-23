@@ -66,9 +66,16 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.logo i {
+  font-size: 30px;
+  color: red;
+  font-weight: 800;
+}
+
 .nav-bar ul {
   position: relative;
   top: 15vh;
+  text-align: center;
 }
 
 .nav-bar ul li a {
