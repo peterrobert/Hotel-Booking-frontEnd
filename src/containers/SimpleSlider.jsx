@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Slider from "react-slick";
 
 class SimpleSlider extends Component {
   constructor(props) {
@@ -9,25 +10,18 @@ class SimpleSlider extends Component {
     const { data } = this.props;
     const diplayInfo = data.map((info) => {
       return (
-        <div className="card mb-3" style="max-width: 540px;" key={info.id}>
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <img src={`${info.main_image}`} className="card-img" alt={info.name} />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">{info.name}</h5>
-                <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <p className="card-text">
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="col-md-4 hotel-disp" key={info.id}>
+          <img src={`${info.main_image}`} alt={info.name} />
+          <h4>{info.name}</h4>
+          <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
+          <span>Location: {info.location}</span>
+          <br />
+          <i class="fa fa-usd" aria-hidden="true"></i>{" "}
+          <span>price per night: {info.price} $$</span>
+          <br />
+          <button type="button" className="btn btn-light">
+            view hotel
+          </button>
         </div>
       );
     });
@@ -35,7 +29,19 @@ class SimpleSlider extends Component {
   }
 
   render() {
-    return this.diplayHotels();
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 4000,
+      autoplaySpeed: 4000,
+      pauseOnHover: true,
+    };
+
+    return <Slider {...settings}>{this.diplayHotels()}</Slider>;
   }
 }
 
