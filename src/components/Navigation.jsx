@@ -3,6 +3,7 @@ import React from "react";
 const Navigation = () => {
   return (
     <div className="nav-bar">
+      <div className="top_bar"></div>
       <div className="logo text-center">
         <i className="fa fa-home" aria-hidden="true"></i>{" "}
         <span>idea booking system</span>

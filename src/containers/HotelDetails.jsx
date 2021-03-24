@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ShowHotel from "../components/ShowHotel";
 import { dataHotelDetails } from "../redux/Actions/hotelDetailsAction";
 
 class HotelDetails extends Component {
@@ -16,10 +17,25 @@ class HotelDetails extends Component {
 
     this.props.fetchHotelDetails(id);
   }
+
+  spinners() {
+    return (
+      <div className="spinner-grow" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
   render() {
-      console.log(this.props)
+  
+    const {data, services} = this.props.resturantDetails.hotelDetails.data
+    const {status} = this.props.resturantDetails.hotelDetails.data
+
+    console.log(status)
     return <div>
-        this is the details component
+
+      {status === "ok" ? <ShowHotel data ={data} servicesOffered = {services} /> : this.spinners()}
+        
     </div>;
   }
 }

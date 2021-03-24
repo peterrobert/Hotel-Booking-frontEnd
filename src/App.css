@@ -89,7 +89,7 @@ body {
 
 .logIn {
   position: absolute;
-  bottom: 0px;
+  bottom: 2px;
   width: 90%;
 }
 
@@ -168,4 +168,11 @@ body {
   color: #000 !important;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+}
+
+.top_bar{
+  background-color: red;
+  height: 2px;
+  width: 100%;
+  margin-bottom: 5px;
 }

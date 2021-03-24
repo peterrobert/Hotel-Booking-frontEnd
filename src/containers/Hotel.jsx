@@ -13,6 +13,14 @@ class Hotel extends Component {
     this.props.fetchRequestHotels();
   }
 
+  spinners() {
+    return (
+      <div className="spinner-grow" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
   render() {
     const { data, status } = this.props.resturants.hotels.data;
     return (
@@ -27,7 +35,7 @@ class Hotel extends Component {
               <p>This are the hotels that are available for booking</p>
             </div>
             <div className="slider_dipslay">
-              {status == "ok" ? <SimpleSlider data={data} /> : "No eveluation"}
+              {status === "ok" ? <SimpleSlider data={data} /> : this.spinners()}
             </div>
           </div>
         </div>
