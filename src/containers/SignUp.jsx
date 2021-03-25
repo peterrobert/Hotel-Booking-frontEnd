@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { signUpUser } from "../redux/Actions/signUpAction";
+import { withRouter } from "react-router";
 
 class SignUp extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class SignUp extends Component {
     this.state = {
       email: "",
       password: "",
-      passwordConfirmation: "",
+      password_confirmation: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,22 +25,26 @@ class SignUp extends Component {
     });
   }
 
+  handleStorage(Info) {
+    if (Info.status === "created") {
+      const { authentication_token } = Info.data;
+      localStorage.setItem("token", authentication_token);
+      const { history } = this.props;
+      history.push(`/booking`);
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-
     const userInfo = {
       user: this.state,
     };
-
-    this.props.registerUser(userInfo)
-
-    console.log(this.props)
-    
-   
+    this.props.registerUser(userInfo);
+    const { data } = this.props.registeredUser.registration;
+    this.handleStorage(data);
   }
 
   render() {
-      
     return (
       <>
         <form onSubmit={this.handleSubmit} className="form_styles">
@@ -79,9 +83,9 @@ class SignUp extends Component {
             <input
               type="password"
               placeholder="Repeat Password"
-              name="passwordConfirmation"
+              name="password_confirmation"
               onChange={this.handleChange}
-              value={this.state.passwordConfirmation}
+              value={this.state.password_confirmation}
               required
             />
 
@@ -110,4 +114,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 SignUp.propTypes = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));
