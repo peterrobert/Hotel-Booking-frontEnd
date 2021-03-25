@@ -6,7 +6,7 @@ const Navigation = () => {
       <div className="top_bar"></div>
       <div className="logo text-center">
         <i className="fa fa-home" aria-hidden="true"></i>{" "}
-        <span>idea booking system</span>
+        <span>Robert bookings</span>
       </div>
       <ul className="nav flex-column">
         <li className="nav-item">
@@ -33,6 +33,10 @@ const Navigation = () => {
 
       <div className="logIn">
           <button>Log In</button>
+      </div>
+
+      <div className="signUp">
+          <button>Sign Up</button>
       </div>
     </div>
   );

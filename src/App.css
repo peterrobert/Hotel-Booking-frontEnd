@@ -50,6 +50,8 @@ body {
 }
 
 .nav-bar {
+  background-color: #dff0d8;
+  position: fixed;
   height: 100vh;
   box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
   -webkit-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
@@ -57,6 +59,7 @@ body {
 }
 
 .logo {
+  padding: 12px;
   position: relative;
   top: 20px;
   font-size: 20px;
@@ -68,7 +71,7 @@ body {
 
 .logo i {
   font-size: 30px;
-  color: red;
+  color: #000;
   font-weight: 800;
 }
 
@@ -89,7 +92,7 @@ body {
 
 .logIn {
   position: absolute;
-  bottom: 2px;
+  bottom: 50px;
   width: 90%;
 }
 
@@ -101,6 +104,26 @@ body {
   height: 40px;
   font-weight: 800;
   font-size: 18px;
+  margin-left: 16px;
+}
+
+.signUp{
+
+  position: absolute;
+  bottom: 2px;
+  width: 90%;
+
+}
+
+.signUp button {
+  margin-left: 3px;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: #000 !important;
+  height: 40px;
+  font-weight: 800;
+  font-size: 18px;
+  margin-left: 16px;
 }
 
 .title {
@@ -170,9 +193,145 @@ body {
   font-weight: 600;
 }
 
-.top_bar{
-  background-color: red;
+.top_bar {
+  background-color: #dff0d8;
   height: 2px;
   width: 100%;
   margin-bottom: 5px;
+}
+
+.show-info .hotel-disp {
+  margin-top: unset;
+}
+
+.show-info .hotel-disp h4 {
+  font-size: 25px !important;
+}
+
+.hotel-disp p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.bg-success {
+  box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+  -webkit-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+  -moz-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+  margin-top: 20px;
+}
+
+.bg-success .card-header {
+  text-align: center;
+  color: #000 !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+.card-body {
+  padding: 10px;
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.card-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.card-title {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card-title i {
+  padding-right: 15px;
+}
+
+.card button {
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: #000 !important;
+}
+
+/* == bootstrap form === */
+
+
+/* Full-width input fields */
+.form_styles input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form_styles input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form_styles hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+.form_styles button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.form_styles button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.form_styles .cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.form_styles .cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.form_styles .container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.form_styles .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .form_styles .cancelbtn, .signupbtn {
+    width: 100%;
+  }
 }
