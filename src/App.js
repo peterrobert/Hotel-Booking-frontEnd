@@ -4,6 +4,7 @@ import Hotel from './containers/Hotel';
 import {Route, Switch } from 'react-router-dom';
 import HotelDetails from './containers/HotelDetails';
 import SignUp from './containers/SignUp';
+import Booking from './containers/Booking';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
        <Route path="/hotels/:id" component={HotelDetails} />
        <Route path='/hotels' component={Hotel}  />
        <Route path='/signUp' component={SignUp}  />
+       <Route path='/booking' component={Booking}  />
        
       </Switch>
   );
