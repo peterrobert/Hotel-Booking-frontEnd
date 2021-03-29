@@ -38,7 +38,6 @@ class SignIn extends Component {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.data.authentication_token);
-
         const { history } = this.props;
         history.push(`/booking`);
       })
