@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   return (
@@ -10,14 +11,10 @@ const Navigation = () => {
       </div>
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link active" href="#">
-            Hotels
-          </a>
+        <Link to="/hotels">hotels</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Bookings
-          </a>
+        <Link to="/booking">bookings</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
@@ -32,11 +29,11 @@ const Navigation = () => {
       </ul>
 
       <div className="logIn">
-          <button>Log In</button>
+          <button><Link to="/signin">sign In</Link></button>
       </div>
 
       <div className="signUp">
-          <button>Sign Up</button>
+          <button><Link to="/signUp">sign Up</Link></button>
       </div>
     </div>
   );

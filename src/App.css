@@ -107,12 +107,10 @@ body {
   margin-left: 16px;
 }
 
-.signUp{
-
+.signUp {
   position: absolute;
   bottom: 2px;
   width: 90%;
-
 }
 
 .signUp button {
@@ -159,8 +157,8 @@ body {
   box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
   -webkit-box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
   -moz-box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 210px;
+  max-height: 210px;
 }
 
 .hotel-disp h4 {
@@ -201,22 +199,24 @@ body {
 }
 
 .show-info .hotel-disp {
-  margin-top: unset;
+  margin-top: 25px;
 }
 
 .show-info .hotel-disp h4 {
   font-size: 25px !important;
+  margin-bottom: 25px;
 }
 
 .hotel-disp p {
   font-weight: 500;
   font-size: 16px;
   line-height: 30px;
-  margin-top: 10px;
+  margin-top: 25px;
   font-family: "Open Sans", sans-serif;
 }
 
 .bg-success {
+  margin-top: 25px;
   box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
   -webkit-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
   -moz-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
@@ -268,18 +268,43 @@ body {
 
 /* == bootstrap form === */
 
+.signup-form {
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+  -webkit-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+  -moz-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
+}
 
+.signup-form h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.signup-form p {
+  font-weight: 500;
+  color: #c1b7b7;
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+}
 /* Full-width input fields */
-.form_styles input[type=text], input[type=password] {
-  width: 100%;
+.form_styles input[type="text"],
+input[type="password"] {
+  width: 98%;
+  margin-top: 20px;
+  border-radius: 8px;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  font-family: "Montserrat", sans-serif;
 }
 
-.form_styles input[type=text]:focus, input[type=password]:focus {
+.form_styles input[type="text"]:focus,
+input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -287,32 +312,38 @@ body {
 .form_styles hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
+  width: 99%;
+}
+
+b,
+strong {
+  font-family: "Open Sans", sans-serif !important;
 }
 
 /* Set a style for all buttons */
 .form_styles button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+  margin-bottom: 50px;
+  width: 98%;
+  font-family: "Montserrat", sans-serif;
+  color: #000 !important;
+  height: 50px;
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 .form_styles button:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Extra styles for the cancel button */
 .form_styles .cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
+ width: 100%;
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.form_styles .cancelbtn, .signupbtn {
+.form_styles .cancelbtn,
+.signupbtn {
   float: left;
   width: 50%;
 }
@@ -329,9 +360,37 @@ body {
   display: table;
 }
 
+.alert-success{
+  margin-top: 20px;
+}
+
+.alert-success h4{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+
+}
+
+.alert-success p{
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.alert-success p a{
+  color: red !important;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+
+
+
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .form_styles .cancelbtn, .signupbtn {
+  .form_styles .cancelbtn,
+  .signupbtn {
     width: 100%;
   }
 }

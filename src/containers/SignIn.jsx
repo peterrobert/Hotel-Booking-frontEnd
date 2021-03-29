@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { signUpUser } from "../redux/Actions/signUpAction";
 import { withRouter } from "react-router";
 
-class SignUp extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
       password: "",
-      password_confirmation: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,21 +22,29 @@ class SignUp extends Component {
     });
   }
 
-  handleStorage(Info) {
-    if (Info.status === "created") {
-      const { history } = this.props;
-      history.push(`/signin`);
-    }
-  }
-
   handleSubmit(event) {
     event.preventDefault();
     const userInfo = {
       user: this.state,
     };
-    this.props.registerUser(userInfo);
-    const { data } = this.props.registeredUser.registration;
-    this.handleStorage(data);
+
+    fetch(`http://localhost:3000/api/v1/sessions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInfo.user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("token", data.data.authentication_token);
+
+        const { history } = this.props;
+        history.push(`/booking`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -47,8 +52,8 @@ class SignUp extends Component {
       <div className="container signup-form">
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
-            <h1>Sign Up</h1>
-            <p>Please fill in this form to create an account.</p>
+            <h1>Sign In</h1>
+            <p>Please fill in this form to sign in</p>
             <hr />
 
             <label>
@@ -75,21 +80,9 @@ class SignUp extends Component {
               required
             />
 
-            <label>
-              <b>Repeat Password</b>
-            </label>
-            <input
-              type="password"
-              placeholder="Repeat Password"
-              name="password_confirmation"
-              onChange={this.handleChange}
-              value={this.state.password_confirmation}
-              required
-            />
-
             <div className="clearfix">
               <button type="submit" className="signupbtn">
-                Sign Up
+                Sign in
               </button>
             </div>
           </div>
@@ -99,14 +92,4 @@ class SignUp extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  registeredUser: state,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  registerUser: (userInfo) => dispatch(signUpUser(userInfo)),
-});
-
-SignUp.propTypes = {};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));
+export default withRouter(SignIn);
