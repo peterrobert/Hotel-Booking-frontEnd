@@ -29,10 +29,22 @@ class SignIn extends Component {
       user: this.state,
     };
 
-    localStorage.setItem("token", data.data.authentication_token);
-    const { history } = this.props;
-    history.push(`/booking`);
-
+    fetch(`http://localhost:3000/api/v1/sessions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInfo.user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("token", data.data.authentication_token);
+        const { history } = this.props;
+        history.push(`/booking`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
