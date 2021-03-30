@@ -6,6 +6,7 @@ import HotelDetails from './containers/HotelDetails';
 import SignUp from './containers/SignUp';
 import Booking from './containers/Booking';
 import SignIn from './containers/SignIn';
+import NewBooking from './containers/NewBooking';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
        <Route path='/signup' component={SignUp}  />
        <Route path='/signin' component={SignIn}  />
        <Route path='/booking' component={Booking}  />
+       <Route path='/newBooking' component={NewBooking}  />
        
       </Switch>
   );

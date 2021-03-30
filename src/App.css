@@ -407,10 +407,11 @@ strong {
 
 .booking_show_card {
   border: 1px solid #eee;
-  margin-top: 30px;
+  margin-top: 15px;
   box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
   -webkit-box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
   -moz-box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
+  margin-bottom: 15px;
 }
 
 .booking_show_card button {
@@ -418,6 +419,7 @@ strong {
   margin-right: 8px;
   color: #fff !important;
   outline: unset;
+  margin-bottom: 10px;
 }
 
 .booking_show_card ul {
@@ -437,6 +439,30 @@ strong {
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 18px;
+}
+
+.info_booked_hotel{
+  position: absolute;
+}
+
+.info_booked_hotel img{
+  border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    margin-left: 10px;
+    margin-top: 3px
+}
+
+.info_booked_hotel span {
+  font-size: 18px;
+  padding-left: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #000 !important;
+  font-weight: 800;
+}
+
+.booking_show_card hr{
+  margin-top: 3px !important;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import BookingDisplay from "../components/BookingDisplay";
+import { withRouter } from "react-router";
 
 class Booking extends Component {
   constructor(props) {
@@ -35,27 +36,31 @@ class Booking extends Component {
 
   displayFunction() {
     const { reservations } = this.state.bookings.data;
+    const { reserved_hotels } = this.state.bookings.data;
     if (reservations.length > 0) {
-      const dislayData = reservations.map((item) => {
-        return <BookingDisplay info={item} key={item.id} />;
+      const dislayData = reservations.map((item, index) => {
+        return (
+          <BookingDisplay
+            info={item}
+            key={item.id}
+            hotelInfo={reserved_hotels[index]}
+          />
+        );
       });
 
       return dislayData;
     }
 
     return (
-      <div className="container text-center">
+      <div className="text-center">
         <div className="alert alert-success" role="alert">
           <h4 className="alert-heading">
             There are no any bookings at the moment
           </h4>
-          <p>
-            To place a reservation, or view all your past reservations kindly
-            sign in
-          </p>
+          <p>You can create a new reservation.</p>
         </div>
       </div>
-    ); 
+    );
   }
 
   render() {
@@ -70,7 +75,14 @@ class Booking extends Component {
             <div className="col-md-9">
               <div className="button_book">
                 <div className="book_button_new text-right">
-                <button>new booking</button>
+                  <button
+                    onClick={() => {
+                      const { history } = this.props;
+                      history.push(`/newBooking`);
+                    }}
+                  >
+                    new booking
+                  </button>
                 </div>
                 {this.displayFunction()}
               </div>
@@ -101,4 +113,4 @@ class Booking extends Component {
 
 Booking.propTypes = {};
 
-export default Booking;
+export default withRouter(Booking);
