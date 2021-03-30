@@ -28,7 +28,7 @@ const Navigation = () => {
         </li>
       </ul>
 
-      <div className="logIn">
+      {/* <div className="logIn">
         <Link to="/signin">
           {" "}
           <button>sign In</button>
@@ -40,7 +40,7 @@ const Navigation = () => {
           {" "}
           <button>Sign Up</button>{" "}
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

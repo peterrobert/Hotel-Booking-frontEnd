@@ -338,7 +338,7 @@ strong {
 
 /* Extra styles for the cancel button */
 .form_styles .cancelbtn {
- width: 100%;
+  width: 100%;
 }
 
 /* Float cancel and signup buttons and add an equal width */
@@ -360,32 +360,84 @@ strong {
   display: table;
 }
 
-.alert-success{
+.alert-success {
   margin-top: 20px;
 }
 
-.alert-success h4{
+.alert-success h4 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-
 }
 
-.alert-success p{
+.alert-success p {
   font-family: "Montserrat", sans-serif;
   color: #000;
   font-weight: 600;
   font-size: 16px;
 }
 
-.alert-success p a{
+.alert-success p a {
   color: red !important;
   text-decoration: underline;
   text-transform: uppercase;
 }
 
+.mb-0 span {
+  color: #000;
+  font-weight: 600;
+}
 
+.no-ccount a {
+  color: red;
+  font-weight: 800;
+  text-transform: uppercase;
+}
 
+.button_book button {
+  font-family: "Montserrat", sans-serif;
+  color: #000 !important;
+  height: 40px;
+  font-weight: 800;
+  font-size: 18px;
+  margin-left: 16px;
+  margin-top: 35px;
+  background-color: unset;
+}
+
+.booking_show_card {
+  border: 1px solid #eee;
+  margin-top: 30px;
+  box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
+  -webkit-box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
+  -moz-box-shadow: 2px 0px 8px -2px rgba(77, 67, 67, 0.65);
+}
+
+.booking_show_card button {
+  margin-top: 10px;
+  margin-right: 8px;
+  color: #fff !important;
+  outline: unset;
+}
+
+.booking_show_card ul {
+  list-style-type: none;
+}
+
+.booking_show_card ul i {
+  font-size: 25px;
+}
+
+.booking_show_card ul li {
+  padding: 10px;
+}
+
+.booking_show_card ul span {
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
