@@ -1,7 +1,9 @@
 import React from "react";
 import Navigation from "./Navigation";
+import { useHistory } from 'react-router-dom';
 
 const ShowHotel = (props) => {
+  const history = useHistory();
   const { main_image, name, description, location, price } = props.data;
   const backStyles = {
     backgroundImage: `url(${main_image})`,
@@ -57,7 +59,14 @@ const ShowHotel = (props) => {
                     ? handleDisplay()
                     : "No services offered at the moment"}
 
-                  <button>reserve</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push('/booking');
+                    }}
+                  >
+                    reserve
+                  </button>
                 </div>
               </div>
             </div>

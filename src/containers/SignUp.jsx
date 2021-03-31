@@ -12,10 +12,12 @@ class SignUp extends Component {
       email: "",
       password: "",
       password_confirmation: "",
+      displayError: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleStorage = this.handleStorage.bind(this);
   }
 
   componentDidMount() {}
@@ -29,35 +31,53 @@ class SignUp extends Component {
   handleLoginError() {
     return (
       <div className="alert alert-danger" role="alert">
-        The email is already taken. signup with another email. 
-        If you have an account kindly sign in.  <Link to="/signin">sign In</Link>
+        The email is already taken. signup with another email. If you have an
+        account kindly sign in. <Link to="/signin">sign In link</Link>
       </div>
     );
   }
 
-  handleStorage(Info) {
-    console.log(Info)
+  handleStorage(Info, history) {
     if (Info.status === "created") {
-      const { history } = this.props;
-      history.push(`/signin`);
-    }else{
-
+    } else {
+      this.setState({
+        email: "",
+        password: "",
+        password_confirmation: "",
+        displayError: true,
+      });
     }
   }
 
   handleSubmit(event) {
+    const { history } = this.props;
     event.preventDefault();
     const userInfo = {
-      user: this.state,
+      user: {
+        email: this.state.email,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation,
+      },
     };
     this.props.registerUser(userInfo);
     const { data } = this.props.registeredUser.registration;
-    this.handleStorage(data);
+    if (data.status === "created") {
+      history.push(`/hotels`);
+      localStorage.setItem("token", data.data.authentication_token);
+    } else {
+      this.setState({
+        email: "",
+        password: "",
+        password_confirmation: "",
+        displayError: true,
+      });
+    }
   }
 
   render() {
     return (
       <div className="container signup-form">
+        {this.state.displayError === true ? this.handleLoginError() : ""}
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
             <h1>Sign Up</h1>
