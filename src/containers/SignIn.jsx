@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class SignIn extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class SignIn extends Component {
     this.state = {
       email: "",
       password: "",
+      errorText: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,6 +17,15 @@ class SignIn extends Component {
   }
 
   componentDidMount() {}
+
+  handleLoginError() {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The email and password combination is wrong. Kindly enter the right
+        credentials. If you have no account kindly sign up
+      </div>
+    );
+  }
 
   handleChange(event) {
     this.setState({
@@ -26,7 +36,10 @@ class SignIn extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const userInfo = {
-      user: this.state,
+      user: {
+        email: this.state.email,
+        password: this.state.password,
+      },
     };
 
     fetch(`http://localhost:3000/api/v1/sessions`, {
@@ -36,20 +49,34 @@ class SignIn extends Component {
       },
       body: JSON.stringify(userInfo.user),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (
+          response.status !== "created" &&
+          response.statusText === "Unauthorized"
+        ) {
+          this.setState({
+            email: "",
+            password: "",
+            errorText: true,
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
         localStorage.setItem("token", data.data.authentication_token);
         const { history } = this.props;
         history.push(`/booking`);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((Error) => {
+        if (Error) {
+        }
       });
   }
 
   render() {
     return (
       <div className="container signup-form">
+        {this.state.errorText === true ? this.handleLoginError() : ""}
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
             <h1>Sign In</h1>
@@ -85,7 +112,8 @@ class SignIn extends Component {
                 Sign in
               </button>
               <p className="mb-0 no-ccount">
-              <span>Dont have an account?</span>  <Link to="/signup">sign up</Link>
+                <span>Dont have an account?</span>{" "}
+                <Link to="/signup">sign up</Link>
               </p>
             </div>
           </div>

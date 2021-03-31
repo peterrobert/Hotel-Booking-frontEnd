@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signUpUser } from "../redux/Actions/signUpAction";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 class SignUp extends Component {
   constructor(props) {
@@ -25,10 +26,22 @@ class SignUp extends Component {
     });
   }
 
+  handleLoginError() {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The email is already taken. signup with another email. 
+        If you have an account kindly sign in.  <Link to="/signin">sign In</Link>
+      </div>
+    );
+  }
+
   handleStorage(Info) {
+    console.log(Info)
     if (Info.status === "created") {
       const { history } = this.props;
       history.push(`/signin`);
+    }else{
+
     }
   }
 

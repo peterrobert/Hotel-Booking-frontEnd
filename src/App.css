@@ -291,7 +291,33 @@ body {
 }
 /* Full-width input fields */
 .form_styles input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+  width: 98%;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form_styles select {
+  width: 98%;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form_styles option {
   width: 98%;
   margin-top: 20px;
   border-radius: 8px;
@@ -441,16 +467,16 @@ strong {
   font-size: 18px;
 }
 
-.info_booked_hotel{
+.info_booked_hotel {
   position: absolute;
 }
 
-.info_booked_hotel img{
+.info_booked_hotel img {
   border-radius: 50%;
-    height: 55px;
-    width: 55px;
-    margin-left: 10px;
-    margin-top: 3px
+  height: 55px;
+  width: 55px;
+  margin-left: 10px;
+  margin-top: 3px;
 }
 
 .info_booked_hotel span {
@@ -461,7 +487,7 @@ strong {
   font-weight: 800;
 }
 
-.booking_show_card hr{
+.booking_show_card hr {
   margin-top: 3px !important;
 }
 
