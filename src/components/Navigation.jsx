@@ -1,9 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    
+    const user_id = localStorage.getItem("user_id");
+    if (user_id !== undefined) {
+      fetch(`http://localhost:3000/api/v1/sessions/${user_id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if(data.status === "ok"){
+            localStorage.removeItem("token")
+            localStorage.removeItem("user_id")
+
+            window.location.reload();
+          }
+          
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   render() {
@@ -33,19 +61,9 @@ class Navigation extends React.Component {
           </li>
         </ul>
 
-        {/* <div className="logIn">
-        <Link to="/signin">
-          {" "}
-          <button>sign In</button>
-        </Link>
-      </div>
-
-      <div className="signUp">
-        <Link to="/signUp">
-          {" "}
-          <button>Sign Up</button>{" "}
-        </Link>
-      </div> */}
+        <div className="logIn">
+          <button onClick={this.handleClick}>Log Out</button>
+        </div>
       </div>
     );
   }
@@ -53,4 +71,4 @@ class Navigation extends React.Component {
 
 Navigation.propTypes = {};
 
-export default Navigation;
+export default withRouter(Navigation);

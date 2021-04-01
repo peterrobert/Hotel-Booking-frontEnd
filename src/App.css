@@ -501,3 +501,19 @@ strong {
     width: 100%;
   }
 }
+
+
+@media screen and (min-width: 1640px) {
+  .hotel-disp img{
+    box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
+    -webkit-box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
+    -moz-box-shadow: 2px 0px 12px -2px rgba(194, 138, 138, 1);
+    max-width: 250px !important;
+    max-height: 250px  !important;
+   
+  }
+
+  .hotel-disp button {
+    width: 70%;
+  }
+}
