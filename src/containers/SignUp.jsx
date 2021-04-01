@@ -61,9 +61,12 @@ class SignUp extends Component {
     };
     this.props.registerUser(userInfo);
     const { data } = this.props.registeredUser.registration;
+    console.log(data)
     if (data.status === "created") {
       history.push(`/hotels`);
       localStorage.setItem("token", data.data.authentication_token);
+
+      localStorage.setItem("user_id", data.data.id)
     } else {
       this.setState({
         email: "",
