@@ -44,6 +44,11 @@ You will also see any lint errors in the console.
 
 [Live Demo Link](https://shielded-peak-27542.herokuapp.com/)
 
+## Video Presentation
+
+[Live Demo Link](https://www.loom.com/share/b3c9570219124ccb937f4528a7e827c9)
+
+
 ## Test Log in infomation:
 
 - I have created a user for testing purposes: This are the log in information
