@@ -8,6 +8,7 @@ import Navigation from '../components/Navigation';
 import BookingDisplay from '../components/BookingDisplay';
 // eslint-disable-next-line import/order
 import { withRouter } from 'react-router';
+import Port from '../port';
 
 class Booking extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class Booking extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/bookings', {
+    fetch(`${Port}api/v1/bookings`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

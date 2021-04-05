@@ -1,3 +1,4 @@
+import Port from '../../port';
 import { REGISTER_USER, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESS } from '../types/signUpTypes';
 
 const registerUser = () => ({
@@ -16,7 +17,7 @@ const registerUserFailure = (err) => ({
 
 const signUpUser = (data) => (dispatch) => {
   dispatch(registerUser());
-  fetch('http://localhost:3000/api/v1/users', {
+  fetch(`${Port}api/v1/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

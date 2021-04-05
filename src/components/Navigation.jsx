@@ -7,6 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { withRouter } from 'react-router';
+import Port from '../port';
 
 class Navigation extends React.Component {
   // eslint-disable-next-line no-useless-constructor
@@ -20,7 +21,7 @@ class Navigation extends React.Component {
     // eslint-disable-next-line camelcase
     const user_id = localStorage.getItem('user_id');
     if (user_id !== undefined) {
-      fetch(`http://localhost:3000/api/v1/sessions/${user_id}`, {
+      fetch(`${Port}api/v1/sessions/${user_id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

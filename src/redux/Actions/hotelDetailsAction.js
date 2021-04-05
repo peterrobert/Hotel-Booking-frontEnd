@@ -1,3 +1,4 @@
+import Port from '../../port';
 import { FETCH_HOTELDETAILS, FETCH_HOTELDETAILS_FAILURE, FETCH_HOTELDETAILS_SUCCESS } from '../types/hotelDetailsTypes';
 
 const fetchHotelDetails = () => ({
@@ -17,7 +18,7 @@ const fetchHotelDetailsFailure = (err) => ({
 const dataHotelDetails = (hotelId) => (dispatch) => {
   dispatch(fetchHotelDetails());
 
-  fetch(`http://localhost:3000/api/v1/hotels/${hotelId}`)
+  fetch(`${Port}api/v1/hotels/${hotelId}`)
     .then((response) => response.json())
     .then((data) => {
       dispatch(fetchHotelDetailsSuccess(data));

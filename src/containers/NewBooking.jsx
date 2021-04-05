@@ -13,6 +13,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { withRouter } from 'react-router';
+import Port from '../port';
 
 class NewBooking extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class NewBooking extends Component {
       hotel_id: this.state.hotel,
     };
 
-    fetch('http://localhost:3000/api/v1/bookings', {
+    fetch(`${Port}api/v1/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

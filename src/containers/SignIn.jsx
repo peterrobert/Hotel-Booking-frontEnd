@@ -13,6 +13,7 @@ import React, { Component } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import Port from '../port';
 
 class SignIn extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class SignIn extends Component {
       },
     };
 
-    fetch('http://localhost:3000/api/v1/sessions', {
+    fetch(`${Port}api/v1/sessions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
