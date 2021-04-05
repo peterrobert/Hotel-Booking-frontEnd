@@ -1,5 +1,4 @@
-import { FETCH_HOTEL, FETCH_HOTEL_FAILURE, FETCH_HOTEL_SUCCESS } from "../types/hotelTypes";
-
+import { FETCH_HOTEL, FETCH_HOTEL_FAILURE, FETCH_HOTEL_SUCCESS } from '../types/hotelTypes';
 
 const initailState = {
   loading: true,

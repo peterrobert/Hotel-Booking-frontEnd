@@ -1,4 +1,4 @@
-import { REGISTER_USER, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESS } from "../types/signUpTypes";
+import { REGISTER_USER, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESS } from '../types/signUpTypes';
 
 const initailState = {
   loading: true,
