@@ -1,10 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Navigation from "../components/Navigation";
-import { dataHotel } from "../redux/Actions/hotelAction";
-import SimpleSlider from "./SimpleSlider";
+/* eslint-disable linebreak-style */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Navigation from '../components/Navigation';
+import { dataHotel } from '../redux/Actions/hotelAction';
+import SimpleSlider from './SimpleSlider';
 
 class Hotel extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
@@ -13,6 +24,7 @@ class Hotel extends Component {
     this.props.fetchRequestHotels();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   spinners() {
     return (
       <div className="spinner-grow" role="status">
@@ -24,7 +36,7 @@ class Hotel extends Component {
   render() {
     const { data, status } = this.props.resturants.hotels.data;
 
-    var settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -38,25 +50,25 @@ class Hotel extends Component {
             slidesToShow: 2,
             slidesToScroll: 1,
             infinite: true,
-            dots: true
-          }
+            dots: true,
+          },
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 0
-          }
+            initialSlide: 0,
+          },
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
     return (
       <div className="container-fluid">
@@ -70,7 +82,7 @@ class Hotel extends Component {
               <p>This are the hotels that are available for booking</p>
             </div>
             <div className="slider_dipslay">
-              {status === "ok" ? <SimpleSlider data={data} {...settings}/> : this.spinners()}
+              {status === 'ok' ? <SimpleSlider data={data} {...settings} /> : this.spinners()}
             </div>
           </div>
         </div>

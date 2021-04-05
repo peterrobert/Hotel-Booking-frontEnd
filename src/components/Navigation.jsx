@@ -1,34 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
+/* eslint-disable linebreak-style */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React from 'react';
+import { Link } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { withRouter } from 'react-router';
 
 class Navigation extends React.Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   handleClick(e) {
     e.preventDefault();
-    
-    const user_id = localStorage.getItem("user_id");
+    // eslint-disable-next-line camelcase
+    const user_id = localStorage.getItem('user_id');
     if (user_id !== undefined) {
       fetch(`http://localhost:3000/api/v1/sessions/${user_id}`, {
-        method: "DELETE",
+        method: 'DELETE',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       })
         .then((response) => response.json())
         .then((data) => {
-          if(data.status === "ok"){
-            localStorage.removeItem("token")
-            localStorage.removeItem("user_id")
+          if (data.status === 'ok') {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user_id');
 
             window.location.reload();
           }
-          
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         });
     }
@@ -37,9 +45,9 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className="nav-bar">
-        <div className="top_bar"></div>
+        <div className="top_bar" />
         <div className="logo text-center">
-          <i className="fa fa-home" aria-hidden="true"></i>{" "}
+          <i className="fa fa-home" aria-hidden="true" />{' '}
           <span>Hotel booking</span>
         </div>
         <ul className="nav flex-column">

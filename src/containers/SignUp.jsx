@@ -1,17 +1,29 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { signUpUser } from "../redux/Actions/signUpAction";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+/* eslint-disable linebreak-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { signUpUser } from '../redux/Actions/signUpAction';
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      password_confirmation: "",
+      email: '',
+      password: '',
+      password_confirmation: '',
       displayError: false,
     };
 
@@ -28,6 +40,7 @@ class SignUp extends Component {
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   handleLoginError() {
     return (
       <div className="alert alert-danger" role="alert">
@@ -37,13 +50,14 @@ class SignUp extends Component {
     );
   }
 
-  handleStorage(Info, history) {
-    if (Info.status === "created") {
+  handleStorage(Info) {
+    // eslint-disable-next-line no-empty
+    if (Info.status === 'created') {
     } else {
       this.setState({
-        email: "",
-        password: "",
-        password_confirmation: "",
+        email: '',
+        password: '',
+        password_confirmation: '',
         displayError: true,
       });
     }
@@ -61,17 +75,16 @@ class SignUp extends Component {
     };
     this.props.registerUser(userInfo);
     const { data } = this.props.registeredUser.registration;
-    console.log(data)
-    if (data.status === "created") {
-      history.push(`/hotels`);
-      localStorage.setItem("token", data.data.authentication_token);
+    if (data.status === 'created') {
+      history.push('/hotels');
+      localStorage.setItem('token', data.data.authentication_token);
 
-      localStorage.setItem("user_id", data.data.id)
+      localStorage.setItem('user_id', data.data.id);
     } else {
       this.setState({
-        email: "",
-        password: "",
-        password_confirmation: "",
+        email: '',
+        password: '',
+        password_confirmation: '',
         displayError: true,
       });
     }
@@ -80,7 +93,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="container signup-form">
-        {this.state.displayError === true ? this.handleLoginError() : ""}
+        {this.state.displayError === true ? this.handleLoginError() : ''}
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
             <h1>Sign Up</h1>

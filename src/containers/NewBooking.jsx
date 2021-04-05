@@ -1,22 +1,33 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
+/* eslint-disable linebreak-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { withRouter } from 'react-router';
 
 class NewBooking extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      arrival: "",
-      departure: "",
+      arrival: '',
+      departure: '',
       rooms: 0,
-      guest: "",
+      guest: '',
       hotel: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -29,34 +40,31 @@ class NewBooking extends Component {
     e.preventDefault();
 
     const data = {
-        arrival: this.state.arrival,
-        departure: this.state.departure,
-        room: this.state.rooms,
-        guest: this.state.guest,
-        hotel_id: this.state.hotel
-    }
+      arrival: this.state.arrival,
+      departure: this.state.departure,
+      room: this.state.rooms,
+      guest: this.state.guest,
+      hotel_id: this.state.hotel,
+    };
 
-    fetch(`http://localhost:3000/api/v1/bookings`, {
-      method: "POST",
+    fetch('http://localhost:3000/api/v1/bookings', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => {
-         console.log(data)
-         const { history } = this.props;
-         history.push(`/booking`);
+      .then(() => {
+        const { history } = this.props;
+        history.push('/booking');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
       });
-
-    
   }
 
+  // eslint-disable-next-line consistent-return
   displayHotels() {
     const { hotels } = this.props.appHotels;
     if (hotels.loading === false) {
@@ -64,6 +72,7 @@ class NewBooking extends Component {
 
       const displayValues = data.map((item, index) => {
         return (
+          // eslint-disable-next-line react/no-array-index-key
           <option key={index} value={item.id}>
             {item.name}
           </option>

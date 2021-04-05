@@ -1,26 +1,32 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation";
-import BookingDisplay from "../components/BookingDisplay";
-import { withRouter } from "react-router";
+/* eslint-disable linebreak-style */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/destructuring-assignment */
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
+import BookingDisplay from '../components/BookingDisplay';
+// eslint-disable-next-line import/order
+import { withRouter } from 'react-router';
 
 class Booking extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      redirect: "/signin",
+      // eslint-disable-next-line react/no-unused-state
+      redirect: '/signin',
     };
 
     this.displayFunction = this.displayFunction.bind(this);
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/bookings`, {
-      method: "GET",
+    fetch('http://localhost:3000/api/v1/bookings', {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then((response) => response.json())
@@ -29,24 +35,22 @@ class Booking extends Component {
           bookings: data,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
       });
   }
 
   displayFunction() {
     const { reservations } = this.state.bookings.data;
+    // eslint-disable-next-line camelcase
     const { reserved_hotels } = this.state.bookings.data;
     if (reservations.length > 0) {
-      const dislayData = reservations.map((item, index) => {
-        return (
-          <BookingDisplay
-            info={item}
-            key={item.id}
-            hotelInfo={reserved_hotels[index]}
-          />
-        );
-      });
+      const dislayData = reservations.map((item, index) => (
+        <BookingDisplay
+          info={item}
+          key={item.id}
+          hotelInfo={reserved_hotels[index]}
+        />
+      ));
 
       return dislayData;
     }
@@ -77,8 +81,10 @@ class Booking extends Component {
                 <div className="book_button_new text-right">
                   <button
                     onClick={() => {
+                      // eslint-disable-next-line react/prop-types
                       const { history } = this.props;
-                      history.push(`/newBooking`);
+                      // eslint-disable-next-line react/prop-types
+                      history.push('/newBooking');
                     }}
                   >
                     new booking

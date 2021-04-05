@@ -1,6 +1,17 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import { withRouter } from "react-router";
+/* eslint-disable linebreak-style */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import Slider from 'react-slick';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { withRouter } from 'react-router';
 
 class SimpleSlider extends Component {
   constructor(props) {
@@ -21,10 +32,10 @@ class SimpleSlider extends Component {
         <div className="col-md-4 hotel-disp" key={info.id}>
           <img src={`${info.main_image}`} alt={info.name} />
           <h4>{info.name}</h4>
-          <i className="fa fa-map-marker" aria-hidden="true"></i>{" "}
+          <i className="fa fa-map-marker" aria-hidden="true" />{' '}
           <span>Location: {info.location}</span>
           <br />
-          <i className="fa fa-usd" aria-hidden="true"></i>{" "}
+          <i className="fa fa-usd" aria-hidden="true" />{' '}
           <span>price per night: {info.price} $$</span>
           <br />
           <button
@@ -44,10 +55,10 @@ class SimpleSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
+      // eslint-disable-next-line no-dupe-keys
       speed: 4000,
       autoplaySpeed: 4000,
       pauseOnHover: true,

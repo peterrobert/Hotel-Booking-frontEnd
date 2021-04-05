@@ -1,14 +1,26 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+/* eslint-disable linebreak-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       errorText: false,
     };
 
@@ -18,6 +30,7 @@ class SignIn extends Component {
 
   componentDidMount() {}
 
+  // eslint-disable-next-line class-methods-use-this
   handleLoginError() {
     return (
       <div className="alert alert-danger" role="alert">
@@ -42,34 +55,34 @@ class SignIn extends Component {
       },
     };
 
-    fetch(`http://localhost:3000/api/v1/sessions`, {
-      method: "POST",
+    fetch('http://localhost:3000/api/v1/sessions', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userInfo.user),
     })
       .then((response) => {
         if (
-          response.status !== "created" &&
-          response.statusText === "Unauthorized"
+          response.status !== 'created'
+          && response.statusText === 'Unauthorized'
         ) {
           this.setState({
-            email: "",
-            password: "",
+            email: '',
+            password: '',
             errorText: true,
           });
         }
         return response.json();
       })
       .then((data) => {
-        console.log(data)
-        localStorage.setItem("token", data.data.authentication_token);
-        localStorage.setItem('user_id', data.data.id)
+        localStorage.setItem('token', data.data.authentication_token);
+        localStorage.setItem('user_id', data.data.id);
         const { history } = this.props;
-        history.push(`/booking`);
+        history.push('/booking');
       })
       .catch((Error) => {
+        // eslint-disable-next-line no-empty
         if (Error) {
         }
       });
@@ -78,7 +91,7 @@ class SignIn extends Component {
   render() {
     return (
       <div className="container signup-form">
-        {this.state.errorText === true ? this.handleLoginError() : ""}
+        {this.state.errorText === true ? this.handleLoginError() : ''}
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
             <h1>Sign In</h1>
@@ -95,6 +108,7 @@ class SignIn extends Component {
               name="email"
               onChange={this.handleChange}
               required
+            // eslint-disable-next-line react/jsx-no-comment-textnodes
             />
 
             <label>
@@ -114,7 +128,7 @@ class SignIn extends Component {
                 Sign in
               </button>
               <p className="mb-0 no-ccount">
-                <span>Dont have an account?</span>{" "}
+                <span>Dont have an account?</span>{' '}
                 <Link to="/signup">sign up</Link>
               </p>
             </div>
