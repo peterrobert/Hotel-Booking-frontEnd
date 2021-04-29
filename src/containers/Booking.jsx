@@ -70,7 +70,7 @@ class Booking extends Component {
 
   render() {
     if (this.state.bookings) {
-      return (
+      return ( 
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-3">
@@ -96,6 +96,7 @@ class Booking extends Component {
             </div>
           </div>
         </div>
+        
       );
     }
     return (

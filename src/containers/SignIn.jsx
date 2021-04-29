@@ -80,7 +80,7 @@ class SignIn extends Component {
         localStorage.setItem('token', data.data.authentication_token);
         localStorage.setItem('user_id', data.data.id);
         const { history } = this.props;
-        history.push('/booking');
+        history.push('/hotels');
       })
       .catch((Error) => {
         // eslint-disable-next-line no-empty

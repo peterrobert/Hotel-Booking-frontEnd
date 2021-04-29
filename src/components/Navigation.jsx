@@ -13,6 +13,18 @@ class Navigation extends React.Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
+
+  }
+
+  checkForToken() {
+    const check_user = localStorage.getItem('user_id');
+    if (check_user !== null){
+      return(
+        <div className="logIn">
+          <button onClick={this.handleClick}>Log Out</button>
+        </div>
+      )
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -20,26 +32,11 @@ class Navigation extends React.Component {
     e.preventDefault();
     // eslint-disable-next-line camelcase
     const user_id = localStorage.getItem('user_id');
-    if (user_id !== undefined) {
-      fetch(`${Port}api/v1/sessions/${user_id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.status === 'ok') {
-            localStorage.removeItem('token');
-            localStorage.removeItem('user_id');
+    if (user_id !== null) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user_id');
 
-            window.location.reload();
-          }
-        })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.log(error);
-        });
+      window.location.reload();
     }
   }
 
@@ -69,10 +66,8 @@ class Navigation extends React.Component {
             </a>
           </li>
         </ul>
-
-        <div className="logIn">
-          <button onClick={this.handleClick}>Log Out</button>
-        </div>
+        {this.checkForToken()}
+        
       </div>
     );
   }

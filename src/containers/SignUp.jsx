@@ -9,27 +9,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable camelcase */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
-import { signUpUser } from '../redux/Actions/signUpAction';
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import { signUpUser } from "../redux/Actions/signUpAction";
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      password_confirmation: '',
+      email: "",
+      password: "",
+      password_confirmation: "",
       displayError: false,
+      spinners: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleStorage = this.handleStorage.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   componentDidMount() {}
@@ -50,22 +52,27 @@ class SignUp extends Component {
     );
   }
 
-  handleStorage(Info) {
-    // eslint-disable-next-line no-empty
-    if (Info.status === 'created') {
+  handleStorage(data) {
+    if (data.status === 200) {
+      const { history } = this.props;
+      localStorage.setItem("token", data.data.authentication_token);
+      localStorage.setItem("user_id", data.data.id);
+
+      history.push("/hotels");
+
+      return;
     } else {
       this.setState({
-        email: '',
-        password: '',
-        password_confirmation: '',
+        email: "",
+        password: "",
+        password_confirmation: "",
         displayError: true,
+        spinners: false,
       });
     }
   }
 
-  handleSubmit(event) {
-    const { history } = this.props;
-    event.preventDefault();
+  handleSignUp() {
     const userInfo = {
       user: {
         email: this.state.email,
@@ -74,32 +81,31 @@ class SignUp extends Component {
       },
     };
     this.props.registerUser(userInfo);
-    const { data } = this.props.registeredUser.registration;
-    if (data.status === 'created') {
-      history.push('/hotels');
-      localStorage.setItem('token', data.data.authentication_token);
+    setTimeout(() => {
+      const { data } = this.props.registeredUser.registration;
+      this.handleStorage(data);
+    }, 3000);
+  }
 
-      localStorage.setItem('user_id', data.data.id);
-    } else {
-      this.setState({
-        email: '',
-        password: '',
-        password_confirmation: '',
-        displayError: true,
-      });
-    }
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      spinners: true,
+    })
+
+    this.handleSignUp();
   }
 
   render() {
     return (
       <div className="container signup-form">
-        {this.state.displayError === true ? this.handleLoginError() : ''}
+         
+        {this.state.displayError === true ? this.handleLoginError() : ""}
         <form onSubmit={this.handleSubmit} className="form_styles">
           <div className="container">
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
             <hr />
-
             <label>
               <b>Email</b>
             </label>
@@ -138,7 +144,11 @@ class SignUp extends Component {
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">
-                Sign Up
+                {this.state.spinners === true ? (
+                 "loading ..."
+                ) : (
+                  "Sign Up"
+                )}
               </button>
             </div>
           </div>
