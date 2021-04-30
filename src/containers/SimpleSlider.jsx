@@ -55,13 +55,46 @@ class SimpleSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
+      speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
-      autoplay: true,
-      // eslint-disable-next-line no-dupe-keys
-      speed: 4000,
-      autoplaySpeed: 4000,
-      pauseOnHover: true,
+      initialSlide: 0,
+      mobileFirst: true,
+      centerMode: false,
+      variableWidth: false,
+      focusOnSelect: true,
+      responsive: [
+        {
+          breakpoint: 1340,
+          settings: {
+            mobileFirst: true,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 720,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            speed: 500,
+            initialSlide: 0,
+            mobileFirst: true,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 500,
+            mobileFirst: true,
+          },
+        },
+      ],
     };
 
     return <Slider {...settings}>{this.diplayHotels()}</Slider>;

@@ -36,44 +36,10 @@ class Hotel extends Component {
   render() {
     const { data, status } = this.props.resturants.hotels.data;
 
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1340,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: 0,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    };
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 col-xs-12 col-sm-12">
             <Navigation />
           </div>
           <div className="col-md-9">
@@ -82,7 +48,7 @@ class Hotel extends Component {
               <p>This are the hotels that are available for booking</p>
             </div>
             <div className="slider_dipslay">
-              {status === 'ok' ? <SimpleSlider data={data} {...settings} /> : this.spinners()}
+              {status === 'ok' ? <SimpleSlider data={data} /> : this.spinners()}
             </div>
           </div>
         </div>

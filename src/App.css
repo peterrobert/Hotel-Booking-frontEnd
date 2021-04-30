@@ -145,6 +145,7 @@ body {
   position: relative;
   top: 50px;
   width: 100%;
+  margin-bottom: 180px;
 }
 
 .hotel-disp {
@@ -158,6 +159,7 @@ body {
   -moz-box-shadow: 2px 0 12px -2px rgba(194, 138, 138, 1);
   min-height: 210px;
   max-height: 210px;
+  width: 100%;
 }
 
 .hotel-disp h4 {
@@ -219,6 +221,7 @@ body {
   -webkit-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
   -moz-box-shadow: 3px -1px 10px -1px rgba(77, 67, 67, 0.65);
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 .bg-success .card-header {
@@ -345,7 +348,7 @@ strong {
 
 /* Set a style for all buttons */
 .form_styles button {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   width: 98%;
   font-family: "Montserrat", sans-serif;
   color: #000 !important;
@@ -511,5 +514,57 @@ strong {
   .hotel-disp button {
     width: 70%;
   }
+}
+
+@media screen and (max-width: 990px) {
+  .desktop-nav{
+    display: none;
+  }
+}
+
+
+.mobile_nav{
+  position: fixed;
+  bottom: 0px;
+  height: 70px;
+  background-color: #206f00;
+  width: 100%;
+}
+
+.mobile_nav .nav{
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 18px;
+}
+
+.mobile_nav li a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin-right: 10px;
+  text-transform: capitalize;
+  color: #fff;
+  margin-top: -5px;
+}
+
+.mobile_nav .nav-item{
+  flex: 1;
+}
+
+.mobile_nav .nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: unset;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 989px) {
+ 
+  .mobile_nav{
+    display: none;
+  }
+  .slider_dipslay{
+    margin-bottom: unset;
+  }
+
 }
 /* stylelint-enable declaration-block-no-shorthand-property-overrides, no-descending-specificity */
