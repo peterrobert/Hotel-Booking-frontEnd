@@ -10,6 +10,7 @@
 /* eslint-disable camelcase */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MobileNav from '../components/MobileNav';
 import Navigation from '../components/Navigation';
 import { dataHotel } from '../redux/Actions/hotelAction';
 import SimpleSlider from './SimpleSlider';
@@ -39,6 +40,7 @@ class Hotel extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
+          <MobileNav />
           <div className="col-md-3 col-xs-12 col-sm-12">
             <Navigation />
           </div>

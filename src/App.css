@@ -8,8 +8,7 @@ body {
 }
 
 .welcome-page {
-  background:
-    linear-gradient(0deg, rgb(19 18 18 / 30%), rgb(16 16 16 / 30%)),
+  background: linear-gradient(0deg, rgb(19 18 18 / 30%), rgb(16 16 16 / 30%)),
     url("https://i.imgur.com/lIzY6Az.jpg");
   width: 100%;
   height: 100vh;
@@ -517,21 +516,46 @@ strong {
 }
 
 @media screen and (max-width: 990px) {
-  .desktop-nav{
+  .desktop-nav {
     display: none;
   }
 }
 
+@media screen and (max-width: 990px) {
+  .mobile_nav .logIn button {
+    left: 40%;
+    position: relative;
+    border-radius: 50%;
+    width: 60px;
+    top: 48px;
+    border: unset;
+    background-color: #000;
+    color: #fff !important;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 400px) {
+  .mobile_nav .logIn button {
+    left: 45%;
+  }
+}
 
-.mobile_nav{
+@media screen and (min-width: 550px) {
+  .mobile_nav .logIn button {
+    left: 50%;
+  }
+}
+
+.mobile_nav {
   position: fixed;
   bottom: 0px;
   height: 70px;
   background-color: #206f00;
   width: 100%;
+  z-index: 10000000;
 }
 
-.mobile_nav .nav{
+.mobile_nav .nav {
   display: flex;
   flex-wrap: nowrap;
   margin-top: 18px;
@@ -547,24 +571,23 @@ strong {
   margin-top: -5px;
 }
 
-.mobile_nav .nav-item{
+.mobile_nav .nav-item {
   flex: 1;
 }
 
-.mobile_nav .nav>li>a:focus, .nav>li>a:hover {
+.mobile_nav .nav > li > a:focus,
+.nav > li > a:hover {
   text-decoration: none;
   background-color: unset;
   border-radius: 20px;
 }
 
 @media screen and (min-width: 989px) {
- 
-  .mobile_nav{
+  .mobile_nav {
     display: none;
   }
-  .slider_dipslay{
+  .slider_dipslay {
     margin-bottom: unset;
   }
-
 }
 /* stylelint-enable declaration-block-no-shorthand-property-overrides, no-descending-specificity */

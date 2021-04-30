@@ -10,6 +10,7 @@
 /* eslint-disable camelcase */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MobileNav from '../components/MobileNav';
 import ShowHotel from '../components/ShowHotel';
 import { dataHotelDetails } from '../redux/Actions/hotelDetailsAction';
 
@@ -44,6 +45,7 @@ class HotelDetails extends Component {
 
     return (
       <div>
+        <MobileNav />
 
         {status === 'ok' ? <ShowHotel data={data} servicesOffered={services} /> : this.spinners()}
 

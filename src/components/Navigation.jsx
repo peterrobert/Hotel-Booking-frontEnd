@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { withRouter } from "react-router";
 
+
 class Navigation extends React.Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
@@ -65,8 +66,10 @@ class Navigation extends React.Component {
               </a>
             </li>
           </ul>
+          {this.checkForToken()}
         </div>
-        {this.checkForToken()}
+
+        
       </div>
     );
   }

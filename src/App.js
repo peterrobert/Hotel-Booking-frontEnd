@@ -7,9 +7,10 @@ import SignUp from "./containers/SignUp";
 import Booking from "./containers/Booking";
 import SignIn from "./containers/SignIn";
 import NewBooking from "./containers/NewBooking";
-import { Link } from "react-router-dom";
+
 
 function App() {
+ 
   return (
     <>
       <Switch>
@@ -22,16 +23,6 @@ function App() {
         <Route path="/newBooking" component={NewBooking} />
       </Switch>
 
-      <div className="mobile_nav">
-        <ul className="nav flex-column">
-          <li className="nav-item">
-            <Link to="/hotels">hotels</Link>
-          </li>
-          <li className="nav-item text-right">
-            <Link to="/booking">bookings</Link>
-          </li>
-        </ul>
-      </div>
     </>
   );
 }

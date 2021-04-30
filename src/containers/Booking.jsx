@@ -9,6 +9,8 @@ import BookingDisplay from '../components/BookingDisplay';
 // eslint-disable-next-line import/order
 import { withRouter } from 'react-router';
 import Port from '../port';
+import MobileNav from '../components/MobileNav';
+
 
 class Booking extends Component {
   constructor(props) {
@@ -46,6 +48,7 @@ class Booking extends Component {
     const { reserved_hotels } = this.state.bookings.data;
     if (reservations.length > 0) {
       const dislayData = reservations.map((item, index) => (
+        
         <BookingDisplay
           info={item}
           key={item.id}
@@ -72,7 +75,9 @@ class Booking extends Component {
     if (this.state.bookings) {
       return ( 
         <div className="container-fluid">
+        
           <div className="row">
+          <MobileNav />
             <div className="col-md-3">
               <Navigation />
             </div>
