@@ -9,12 +9,12 @@ const BookingDisplay = (props) => {
   const { hotelInfo } = props;
   return (
     <div className="booking_show_card">
-      <div>
+      <div className= "responsive_issue">
         <div className="info_booked_hotel">
           <img src={`${hotelInfo.main_image}`} alt="Avatar" />
           <span>{hotelInfo.name}</span>
         </div>
-        <div className="text-right">
+        <div className="text-right repo">
           <button
             className="btn btn-success btn-small"
             type="button"

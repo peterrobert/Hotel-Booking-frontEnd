@@ -593,4 +593,20 @@ strong {
     margin-bottom: unset;
   }
 }
+
+@media screen and (max-width: 510px) {
+  .responsive_issue {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .responsive_issue .info_booked_hote {
+    flex: 1;
+  }
+
+  .responsive_issue .repo {
+    flex: 1;
+    margin-top: 100px;
+  }
+}
 /* stylelint-enable declaration-block-no-shorthand-property-overrides, no-descending-specificity */
