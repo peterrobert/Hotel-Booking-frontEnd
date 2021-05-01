@@ -1,16 +1,14 @@
-import "./App.css";
-import { Route, Switch } from "react-router-dom";
-import Welcome from "./components/Welcome";
-import Hotel from "./containers/Hotel";
-import HotelDetails from "./containers/HotelDetails";
-import SignUp from "./containers/SignUp";
-import Booking from "./containers/Booking";
-import SignIn from "./containers/SignIn";
-import NewBooking from "./containers/NewBooking";
-
+import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Welcome from './components/Welcome';
+import Hotel from './containers/Hotel';
+import HotelDetails from './containers/HotelDetails';
+import SignUp from './containers/SignUp';
+import Booking from './containers/Booking';
+import SignIn from './containers/SignIn';
+import NewBooking from './containers/NewBooking';
 
 function App() {
- 
   return (
     <>
       <Switch>
