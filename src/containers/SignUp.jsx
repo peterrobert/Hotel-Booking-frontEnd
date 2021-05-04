@@ -53,7 +53,7 @@ class SignUp extends Component {
   }
 
   handleStorage(data) {
-    if (data.status === 200) {
+    if (data.status === 201) {
       const { history } = this.props;
       localStorage.setItem("token", data.data.authentication_token);
       localStorage.setItem("user_id", data.data.id);

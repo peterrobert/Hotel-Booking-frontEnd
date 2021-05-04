@@ -8,11 +8,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable camelcase */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import MobileNav from '../components/MobileNav';
-import ShowHotel from '../components/ShowHotel';
-import { dataHotelDetails } from '../redux/Actions/hotelDetailsAction';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import MobileNav from "../components/MobileNav";
+import ShowHotel from "../components/ShowHotel";
+import { dataHotelDetails } from "../redux/Actions/hotelDetailsAction";
 
 class HotelDetails extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -42,13 +42,14 @@ class HotelDetails extends Component {
   render() {
     const { data, services } = this.props.resturantDetails.hotelDetails.data;
     const { status } = this.props.resturantDetails.hotelDetails.data;
-
     return (
       <div>
         <MobileNav />
-
-        {status === 'ok' ? <ShowHotel data={data} servicesOffered={services} /> : this.spinners()}
-
+        {status === "ok" ? (
+          <ShowHotel data={data} servicesOffered={services} />
+        ) : (
+          this.spinners()
+        )}
       </div>
     );
   }
