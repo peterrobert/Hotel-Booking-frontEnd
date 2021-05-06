@@ -52,8 +52,8 @@ class SignUp extends Component {
     );
   }
 
-  handleStorage(data) {
-    if (data.status === 201) {
+  handleStorage(loading, data) {
+    if (loading === false) {
       const { history } = this.props;
       localStorage.setItem("token", data.data.authentication_token);
       localStorage.setItem("user_id", data.data.id);
@@ -82,8 +82,8 @@ class SignUp extends Component {
     };
     this.props.registerUser(userInfo);
     setTimeout(() => {
-      const { data } = this.props.registeredUser.registration;
-      this.handleStorage(data);
+      const { loading, data } = this.props.registeredUser.registration;
+      this.handleStorage(loading, data);
     }, 3000);
   }
 
@@ -97,6 +97,7 @@ class SignUp extends Component {
   }
 
   render() {
+    
     return (
       <div className="container signup-form">
          

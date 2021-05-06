@@ -66,7 +66,7 @@ const ShowHotel = (props) => {
               <div className="card text-white bg-success mb-3">
                 <div className="card-header">Services Offered</div>
                 <div className="card-body">
-                  {props.servicesOffered.length > 0
+                  {props.servicesOffered !== null 
                     ? handleDisplay()
                     : 'No services offered at the moment'}
 

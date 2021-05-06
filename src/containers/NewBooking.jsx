@@ -9,22 +9,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable camelcase */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { withRouter } from 'react-router';
-import Port from '../port';
+import { withRouter } from "react-router";
+import Port from "../port";
 
 class NewBooking extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      arrival: '',
-      departure: '',
+      arrival: "",
+      departure: "",
       rooms: 0,
-      guest: '',
+      guest: "",
       hotel: 0,
+      spinners: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,7 +40,9 @@ class NewBooking extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.setState({
+      spinners: true
+    })
     const data = {
       arrival: this.state.arrival,
       departure: this.state.departure,
@@ -49,28 +52,25 @@ class NewBooking extends Component {
     };
 
     fetch(`${Port}api/v1/bookings`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then(() => {
-        const { history } = this.props;
-        history.push('/booking');
+        setTimeout(() => {
+          const { history } = this.props;
+          history.push("/booking");
+        }, 2500);
       })
-      .catch(() => {
-      });
+      .catch(() => {});
   }
-
   // eslint-disable-next-line consistent-return
   displayHotels() {
-    const { hotels } = this.props.appHotels;
-    if (hotels.loading === false) {
-      const { data } = this.props.appHotels.hotels.data;
-
+      const { data } = this.props.appHotels.hotels;
       const displayValues = data.map((item, index) => {
         return (
           // eslint-disable-next-line react/no-array-index-key
@@ -80,10 +80,9 @@ class NewBooking extends Component {
         );
       });
       return displayValues;
-    }
   }
-
   render() {
+   const {loading} = this.props.appHotels.hotels
     return (
       <div className="container signup-form new_booking_form">
         <form onSubmit={this.handleSubmit} className="form_styles">
@@ -148,12 +147,12 @@ class NewBooking extends Component {
               value={this.state.hotel}
               onChange={this.handleChange}
             >
-              {this.displayHotels()}
+              {loading === false ? this.displayHotels(): "loading"}
             </select>
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">
-                create reservation
+               {this.state.spinners === true ? "loading..." : "create reservation"}
               </button>
             </div>
           </div>

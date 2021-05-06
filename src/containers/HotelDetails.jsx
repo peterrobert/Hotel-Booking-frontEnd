@@ -41,11 +41,12 @@ class HotelDetails extends Component {
 
   render() {
     const { data, services } = this.props.resturantDetails.hotelDetails.data;
-    const { status } = this.props.resturantDetails.hotelDetails.data;
+    const {loading} =  this.props.resturantDetails.hotelDetails
+
     return (
       <div>
         <MobileNav />
-        {status === "ok" ? (
+        {loading === false ? (
           <ShowHotel data={data} servicesOffered={services} />
         ) : (
           this.spinners()

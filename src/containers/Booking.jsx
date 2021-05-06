@@ -25,21 +25,27 @@ class Booking extends Component {
   }
 
   componentDidMount() {
-    fetch(`${Port}api/v1/bookings`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          bookings: data,
-        });
+
+    const checkStorage = localStorage.getItem('token');
+
+    if(checkStorage !== null){
+      fetch(`${Port}api/v1/bookings`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       })
-      .catch(() => {
-      });
+        .then((response) => response.json())
+        .then((data) => {
+            this.setState({
+              bookings: data,
+            });
+        })
+        .catch(() => {
+        });
+    }
+   
   }
 
   displayFunction() {

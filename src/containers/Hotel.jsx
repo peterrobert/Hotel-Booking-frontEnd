@@ -35,8 +35,7 @@ class Hotel extends Component {
   }
 
   render() {
-    const { data, status } = this.props.resturants.hotels.data;
-
+    const { data, loading } = this.props.resturants.hotels;
     return (
       <div className="container-fluid">
         <div className="row">
@@ -50,7 +49,7 @@ class Hotel extends Component {
               <p>This are the hotels that are available for booking</p>
             </div>
             <div className="slider_dipslay">
-              {status === 'ok' ? <SimpleSlider data={data} /> : this.spinners()}
+              {loading === false ? <SimpleSlider data={data} /> : this.spinners()}
             </div>
           </div>
         </div>
