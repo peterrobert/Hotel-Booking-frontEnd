@@ -64,7 +64,6 @@ class Booking extends Component {
 
       return dislayData;
     }
-
     return (
       <div className="text-center">
         <div className="alert alert-success" role="alert">
